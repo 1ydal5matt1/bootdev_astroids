@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from CircleShape import *
 
 def main():    
     print("Starting Asteroids!")
@@ -7,13 +8,20 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    
+    clock = pygame.time.Clock()
+    dt = 0
+    
     while True:
-
+        # code that makes the x button work
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
         pygame.Surface.fill(screen,(0, 0, 0))
         pygame.display.flip()
+
+        dt = clock.tick(60)/1000
 
 
 
