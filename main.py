@@ -38,7 +38,12 @@ def main():
         
         pygame.Surface.fill(screen,(0, 0, 0))
         updatable.update(dt)
-        
+        for i in asteroids:
+            if player.check_collision(i):
+                print("Game over!")
+                return
+
+
         for obj in drawable:
             obj.draw(screen)
 
