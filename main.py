@@ -41,11 +41,18 @@ def main():
         
         pygame.Surface.fill(screen,(0, 0, 0))
         updatable.update(dt)
+
+        # check if the player collied with an asteroid
         for i in asteroids:
             if player.check_collision(i):
                 print("Game over!")
                 return
 
+        # check if an asteroid collied with a bullet
+        for i in asteroids:
+            for s in shots:
+                if s.check_collision(i):
+                    i.kill()
 
         for obj in drawable:
             obj.draw(screen)
